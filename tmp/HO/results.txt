@@ -1,0 +1,11 @@
+Harmonic oscillator thermodynamics
+================================================================
+Frequency file : freq.txt
+Temperature    : 298.00 K
+Modes used     : 27
+
+Zero-Point Energy (ZPE)               2.384e+05 J/mol, 2.471e+00 eV/molecule
+Total Vibrational Entropy (S)         3.956e+01 J/(mol K), 4.100e-04 eV/(molecule K)
+Total Helmholtz Free Energy (A)       2.341e+05 J/mol, 2.426e+00 eV/molecule
+Standard Chemical Potential (mu)      2.341e+05 J/mol, 2.426e+00 eV/molecule
+Total Internal Energy (U)             2.458e+05 J/mol, 2.548e+00 eV/molecule

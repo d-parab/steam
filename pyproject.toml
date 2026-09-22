@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "steam"
 version = "0.1.0"
-description = "Surface Thermodynamics and Entropy Analysis Module"
+description = "Thermodynamic properties of surface intermediates"
 readme = "README.md"
 requires-python = ">=3.9"
 license = {text = "MIT"}
@@ -18,6 +18,9 @@ dependencies = [
 
 [project.optional-dependencies]
 dev = ["pytest>=7.0"]
+
+[project.scripts]
+steam = "steam.cli:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]
