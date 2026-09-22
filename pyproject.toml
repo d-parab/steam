@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "steam"
+version = "0.1.0"
+description = "Surface Thermodynamics and Entropy Analysis Module"
+readme = "README.md"
+requires-python = ">=3.9"
+license = {text = "MIT"}
+authors = [{name = "Durvesh Parab", email = "dparab@wisc.edu"}]
+dependencies = [
+    "numpy>=1.20",
+    "scipy>=1.7",
+    "ase>=3.22",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
