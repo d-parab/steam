@@ -1,0 +1,17 @@
+Hindered rotation thermodynamics
+================================================================
+WARNING: make sure all atoms are constrained except the adsorbate.
+
+Structure         : CONTCAR
+Temperature       : 298.00 K
+Barrier           : 0.5000 eV
+Rotation axis     : atom 45
+Equivalent minima : 6
+Symmetry number   : 1
+Moment of inertia : 69.8661 amu A^2
+Frequency         : 187.16 cm^-1
+
+Total Internal Energy (U)             2.673e+03 J/mol, 2.771e-02 eV/molecule
+Total Entropy (S)                     9.667e+00 J/(mol K), 1.002e-04 eV/(molecule K)
+Total Helmholtz Free Energy (A)       -2.074e+02 J/mol, -2.150e-03 eV/molecule
+Standard Chemical Potential (mu)      -2.074e+02 J/mol, -2.150e-03 eV/molecule

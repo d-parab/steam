@@ -74,14 +74,14 @@ def format_report(results, file_path=None):
         "",
         f"{'Zero-Point Energy (ZPE)':<38}"
         f"{r['ZPE_J_per_mol']:.3e} J/mol, {r['ZPE_eV']:.3e} eV/molecule",
+        f"{'Total Internal Energy (U)':<38}"
+        f"{r['U_J_per_mol']:.3e} J/mol, {r['U_eV']:.3e} eV/molecule",
         f"{'Total Vibrational Entropy (S)':<38}"
         f"{r['S_J_per_mol_K']:.3e} J/(mol K), {r['S_eV_per_K']:.3e} eV/(molecule K)",
         f"{'Total Helmholtz Free Energy (A)':<38}"
         f"{r['A_J_per_mol']:.3e} J/mol, {r['A_eV']:.3e} eV/molecule",
         f"{'Standard Chemical Potential (mu)':<38}"
         f"{r['mu_J_per_mol']:.3e} J/mol, {r['mu_eV']:.3e} eV/molecule",
-        f"{'Total Internal Energy (U)':<38}"
-        f"{r['U_J_per_mol']:.3e} J/mol, {r['U_eV']:.3e} eV/molecule",
     ]
     return "\n".join(lines)
 

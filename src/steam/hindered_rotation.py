@@ -147,40 +147,30 @@ def hindered_rotation_properties(barrier_eV, contcar_file, atom_index,
     }
 
 
-def format_report(r, contcar_file=None):
+def format_report(results, contcar_file=None):
     """Return the results as a human-readable text block."""
-    lines = ["Hindered rotation thermodynamics", "=" * 70,
+    r = results
+    lines = ["Hindered rotation thermodynamics", "=" * 64,
              CONSTRAINT_WARNING, ""]
     if contcar_file is not None:
-        lines.append(f"Structure        : {contcar_file}")
+        lines.append(f"Structure         : {contcar_file}")
     lines += [
-        f"Temperature      : {r['temperature']:.2f} K",
-        f"Barrier          : {r['barrier_eV']:.4f} eV",
-        f"Rotation axis    : atom {r['atom_index']}",
-        f"Equivalent minima: {r['n_minima']}",
-        f"Symmetry number  : {r['symmetry_number']}",
-        f"Moment of inertia: {r['moment_of_inertia_amu_A2']:.4f} amu A^2",
-        f"Frequency        : {r['nu_cm_inv']:.2f} cm^-1",
+        f"Temperature       : {r['temperature']:.2f} K",
+        f"Barrier           : {r['barrier_eV']:.4f} eV",
+        f"Rotation axis     : atom {r['atom_index']}",
+        f"Equivalent minima : {r['n_minima']}",
+        f"Symmetry number   : {r['symmetry_number']}",
+        f"Moment of inertia : {r['moment_of_inertia_amu_A2']:.4f} amu A^2",
+        f"Frequency         : {r['nu_cm_inv']:.2f} cm^-1",
         "",
-        f"{'Chemical potential (mu)':<32}"
-        f"{r['mu_J_per_mol']:.3e} J/mol  |  {r['mu_eV']:.3e} eV/molecule",
-        "",
-        f"{'Vibrational entropy (S_HO)':<32}"
-        f"{r['S_HO_J_per_mol_K']:.3f} J/(mol K)  |  {r['S_HO_eV_per_K']:.3e} eV/(molecule K)",
-        f"{'Additional entropy (delS)':<32}"
-        f"{r['delS_J_per_mol_K']:.3f} J/(mol K)  |  {r['delS_eV_per_K']:.3e} eV/(molecule K)",
-        f"{'Total entropy (S)':<32}"
-        f"{r['S_J_per_mol_K']:.3f} J/(mol K)  |  {r['S_eV_per_K']:.3e} eV/(molecule K)",
-        "",
-        f"{'Vibrational Helmholtz (A_HO)':<32}"
-        f"{r['A_HO_J_per_mol']:.3f} J/mol  |  {r['A_HO_eV']:.3e} eV/molecule",
-        f"{'Additional Helmholtz (delA)':<32}"
-        f"{r['delA_J_per_mol']:.3f} J/mol  |  {r['delA_eV']:.3e} eV/molecule",
-        f"{'Total Helmholtz (A)':<32}"
-        f"{r['A_J_per_mol']:.3f} J/mol  |  {r['A_eV']:.3e} eV/molecule",
-        "",
-        f"{'Internal energy (U)':<32}"
-        f"{r['U_J_per_mol']:.3f} J/mol  |  {r['U_eV']:.3e} eV/molecule",
+        f"{'Total Internal Energy (U)':<38}"
+        f"{r['U_J_per_mol']:.3e} J/mol, {r['U_eV']:.3e} eV/molecule",
+        f"{'Total Entropy (S)':<38}"
+        f"{r['S_J_per_mol_K']:.3e} J/(mol K), {r['S_eV_per_K']:.3e} eV/(molecule K)",
+        f"{'Total Helmholtz Free Energy (A)':<38}"
+        f"{r['A_J_per_mol']:.3e} J/mol, {r['A_eV']:.3e} eV/molecule",
+        f"{'Standard Chemical Potential (mu)':<38}"
+        f"{r['mu_J_per_mol']:.3e} J/mol, {r['mu_eV']:.3e} eV/molecule",
     ]
     return "\n".join(lines)
 

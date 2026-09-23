@@ -1,0 +1,16 @@
+Hindered translation thermodynamics
+================================================================
+WARNING: make sure all atoms are constrained except the adsorbate.
+WARNING: hard coded for (111) geometry.
+
+Structure      : CONTCAR
+Temperature    : 298.00 K
+Barrier        : 0.9600 eV
+NN distance    : 2.8280 A
+Adsorbate mass : 43.0890 amu
+Frequency      : 131.40 cm^-1
+
+Total Internal Energy (U)             2.576e+03 J/mol, 2.670e-02 eV/molecule
+Total Entropy (S)                     1.235e+01 J/(mol K), 1.280e-04 eV/(molecule K)
+Total Helmholtz Free Energy (A)       -1.105e+03 J/mol, -1.145e-02 eV/molecule
+Standard Chemical Potential (mu)      -1.105e+03 J/mol, -1.145e-02 eV/molecule
