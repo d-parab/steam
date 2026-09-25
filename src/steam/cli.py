@@ -17,6 +17,11 @@ from steam.hindered_rotation import (
     format_report as format_hindrot,
     write_report as write_hindrot,
 )
+from steam.ideal_gas_translation import (
+    ideal_gas_translation_properties,
+    format_report as format_igtrans,
+    write_report as write_igtrans,
+)
 
 
 def main():
@@ -64,6 +69,17 @@ def main():
                    help="temperature in K (default: 298.15)")
     r.add_argument("-o", "--output", default=None,
                    help="also write results to this file")
+    
+    #IG translation
+    g = sub.add_parser("ig-trans",
+                       help="3D ideal gas translational thermodynamics")
+    g.add_argument("contcar", help="VASP CONTCAR of the gas molecule")
+    g.add_argument("-T", "--temperature", type=float, default=298.15,
+                   help="temperature in K (default: 298.15)")
+    g.add_argument("-P", "--pressure", type=float, default=1e5,
+                   help="pressure in Pa (default: 1e5)")
+    g.add_argument("-o", "--output", default=None,
+                   help="also write results to this file")
 
     args = parser.parse_args()
 
@@ -87,6 +103,13 @@ def main():
         print(format_hindrot(results, contcar_file=args.contcar))
         if args.output:
             write_hindrot(results, args.output, contcar_file=args.contcar)
+
+    elif args.command == "ig-trans":
+        results = ideal_gas_translation_properties(
+            args.contcar, args.temperature, args.pressure)
+        print(format_igtrans(results, contcar_file=args.contcar))
+        if args.output:
+            write_igtrans(results, args.output, contcar_file=args.contcar)
 
     if args.output:
         print(f"\nWritten to {args.output}")

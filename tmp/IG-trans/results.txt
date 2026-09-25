@@ -1,0 +1,11 @@
+Ideal gas translation thermodynamics (3D)
+================================================================
+Structure      : CONTCAR
+Temperature    : 298.00 K
+Pressure       : 1.000e+05 Pa
+Mass           : 44.0970 amu
+
+Total Internal Energy (U)             3.717e+03 J/mol, 3.852e-02 eV/molecule
+Total Translational Entropy (S)       1.561e+02 J/(mol K), 1.618e-03 eV/(molecule K)
+Total Helmholtz Free Energy (A)       -4.279e+04 J/mol, -4.435e-01 eV/molecule
+Standard Chemical Potential (mu)      -4.031e+04 J/mol, -4.178e-01 eV/molecule
