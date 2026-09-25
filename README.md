@@ -23,7 +23,7 @@ pip install -e .
 STEAM uses subcommands. Run `steam --help` or `steam <command> --help` for details.
 
 ```bash
-steam harmonic freq.txt -T 298.15 -o results.txt
+steam harmonic freq.txt -T 298.15 -o harmonic.txt
 ```
 
 | Option | Meaning |
@@ -73,22 +73,22 @@ steam hindered-rot CONTCAR_Hind-rot -W 0.51 -a 45 -n 6 -s 2 -T 298.15 -o rot.txt
 
 All atoms must be constrained except the adsorbate.
 
-## Python API
+## Ideal gas translation (3D)
 
-```python
-from steam import (
-    harmonic_properties,
-    hindered_translation_properties,
-    hindered_rotation_properties,
-)
+### Command line
 
-r = harmonic_properties("freq.txt", temperature=298.15)
-print(r["A_eV"], r["S_J_per_mol_K"])
+```bash
+steam ig-trans CONTCAR-IG -T 298.15 -P 1e5 -o ig.txt
 ```
 
-Each returns a dict. The hindered modules also hold the separate
-harmonic and anharmonic parts (`S_HO`, `delS`, `A_HO`, `delA`), which
-are not printed in the report.
+| Option | Meaning |
+|---|---|
+| `contcar` | VASP CONTCAR of the gas-phase molecule |
+| `-T`, `--temperature` | temperature in K (default 298.15) |
+| `-P`, `--pressure` | standard-state pressure in Pa (default 1e5) |
+| `-o`, `--output` | also write the report to this file |
+
+
 
 ## Output
 
