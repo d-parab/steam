@@ -22,6 +22,12 @@ from steam.ideal_gas_translation import (
     format_report as format_igtrans,
     write_report as write_igtrans,
 )
+from steam.ideal_gas_rotation import (
+    ideal_gas_rotation_nonlinear_properties,
+    ideal_gas_rotation_linear_properties,
+    format_report as format_igrot,
+    write_report as write_igrot,
+)
 
 
 def main():
@@ -80,6 +86,29 @@ def main():
                    help="pressure in Pa (default: 1e5)")
     g.add_argument("-o", "--output", default=None,
                    help="also write results to this file")
+    
+    #IG rotation
+    gr = sub.add_parser("ig-rot-nonlinear",
+                        help="ideal gas rotation, non-linear molecule")
+    gr.add_argument("contcar", help="VASP CONTCAR of the gas molecule")
+    gr.add_argument("-s", "--symmetry-number", type=float, required=True,
+                    help="rotational symmetry number")
+    gr.add_argument("-T", "--temperature", type=float, default=298.15,
+                    help="temperature in K (default: 298.15)")
+    gr.add_argument("-o", "--output", default=None,
+                    help="also write results to this file")
+
+    gl = sub.add_parser("ig-rot-linear",
+                        help="ideal gas rotation, linear molecule")
+    gl.add_argument("contcar", help="VASP CONTCAR of the gas molecule")
+    gl.add_argument("-s", "--symmetry-number", type=float, required=True,
+                    help="rotational symmetry number")
+    gl.add_argument("-T", "--temperature", type=float, default=298.15,
+                    help="temperature in K (default: 298.15)")
+    gl.add_argument("--tol", type=float, default=1e-3,
+                    help="relative tolerance for linearity check (default: 1e-3)")
+    gl.add_argument("-o", "--output", default=None,
+                    help="also write results to this file")
 
     args = parser.parse_args()
 
@@ -110,6 +139,20 @@ def main():
         print(format_igtrans(results, contcar_file=args.contcar))
         if args.output:
             write_igtrans(results, args.output, contcar_file=args.contcar)
+
+    elif args.command == "ig-rot-nonlinear":
+        results = ideal_gas_rotation_nonlinear_properties(
+            args.contcar, args.symmetry_number, args.temperature)
+        print(format_igrot(results, contcar_file=args.contcar))
+        if args.output:
+            write_igrot(results, args.output, contcar_file=args.contcar)
+
+    elif args.command == "ig-rot-linear":
+        results = ideal_gas_rotation_linear_properties(
+            args.contcar, args.symmetry_number, args.temperature, args.tol)
+        print(format_igrot(results, contcar_file=args.contcar))
+        if args.output:
+            write_igrot(results, args.output, contcar_file=args.contcar)
 
     if args.output:
         print(f"\nWritten to {args.output}")

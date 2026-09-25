@@ -1,0 +1,11 @@
+Ideal gas rotation thermodynamics (non-linear)
+================================================================
+Structure        : CONTCAR
+Temperature      : 298.00 K
+Symmetry number  : 2
+Moments (amu A^2): 17.2259, 59.9779, 67.8109
+
+Total Internal Energy (U)             3.717e+03 J/mol, 3.852e-02 eV/molecule
+Total Rotational Entropy (S)          8.914e+01 J/(mol K), 9.238e-04 eV/(molecule K)
+Total Helmholtz Free Energy (A)       -2.285e+04 J/mol, -2.368e-01 eV/molecule
+Standard Chemical Potential (mu)      -2.285e+04 J/mol, -2.368e-01 eV/molecule
