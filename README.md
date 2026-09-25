@@ -88,7 +88,37 @@ steam ig-trans CONTCAR-IG -T 298.15 -P 1e5 -o ig.txt
 | `-P`, `--pressure` | standard-state pressure in Pa (default 1e5) |
 | `-o`, `--output` | also write the report to this file |
 
+## Ideal gas rotation
 
+### Non-linear molecules
+
+```bash
+steam ig-rot-nonlinear CONTCAR-IG -s 2 -T 298.15 -o igrot.txt
+```
+
+| Option | Meaning |
+|---|---|
+| `contcar` | VASP CONTCAR of the gas-phase molecule |
+| `-s`, `--symmetry-number` | rotational symmetry number |
+| `-T`, `--temperature` | temperature in K (default 298.15) |
+| `-o`, `--output` | also write the report to this file |
+
+### Linear molecules
+
+```bash
+steam ig-rot-linear CONTCAR-IG -s 2 -T 298.15 -o igrot.txt
+```
+
+| Option | Meaning |
+|---|---|
+| `contcar` | VASP CONTCAR of the gas-phase molecule |
+| `-s`, `--symmetry-number` | rotational symmetry number |
+| `-T`, `--temperature` | temperature in K (default 298.15) |
+| `--tol` | relative tolerance for the linearity check (default 1e-3) |
+| `-o`, `--output` | also write the report to this file |
+
+The linear molecule must be aligned along one of the unit cell axes
+(x, y or z) in the CONTCAR.
 
 ## Output
 
@@ -103,11 +133,6 @@ where `A` is the value reported here.
 
 #### Reference article for formulae used in hindered translation and rotation codes
 Lynza H. Sprowl, Charles T. Campbell, Líney Árnadóttir; Hindered Translator and Hindered Rotor Models for Adsorbates: Partition Functions and Entropies. J. Phys. Chem. C 12 May 2016; 120 (18): 9719–9731.
-
-
-## License
-
-MIT
 
 ## Citation
 
