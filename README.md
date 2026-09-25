@@ -9,6 +9,13 @@ pip install git+https://github.com/d-parab/steam.git
 ```
 Requires Python 3.9+, NumPy, SciPy and ASE
 
+## Development installation
+```bash
+git clone https://github.com/d-parab/steam.git
+cd steam
+pip install -e .
+```
+
 ## Harmonic oscillator
 
 ### Command line
