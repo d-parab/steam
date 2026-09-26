@@ -133,7 +133,3 @@ where `A` is the value reported here.
 
 #### Reference article for formulae used in hindered translation and rotation codes
 Lynza H. Sprowl, Charles T. Campbell, Líney Árnadóttir; Hindered Translator and Hindered Rotor Models for Adsorbates: Partition Functions and Entropies. J. Phys. Chem. C 12 May 2016; 120 (18): 9719–9731.
-
-## Citation
-
-If you use this code, please cite [add reference].
